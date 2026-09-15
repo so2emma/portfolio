@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #000000;
+  --fg: #ededed;
+  --dim: #7a7a7a;
+  --line: #2a2a2a;
+  --invert-bg: #ededed;
+  --invert-fg: #000000;
+}
+
+@theme {
+  --font-mono: var(--font-mono), "JetBrains Mono", monospace;
+  --color-bg: #000000;
+  --color-fg: #ededed;
+  --color-dim: #7a7a7a;
+  --color-line: #2a2a2a;
+  --color-invert-bg: #ededed;
+  --color-invert-fg: #000000;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #000000;
+  color: #ededed;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+pre::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-mono);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: 90px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+::selection {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+:focus-visible:not(input):not(textarea) {
+  outline: 1px solid var(--fg);
+  outline-offset: 3px;
+}
+
+input:focus,
+input:focus-visible,
+textarea:focus,
+textarea:focus-visible {
+  outline: none !important;
+  outline-offset: 0 !important;
+  box-shadow: none !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-bottom: 1px solid var(--fg) !important;
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-cursor-blink {
+  animation: cursor-blink 1s step-end infinite;
+}
